@@ -2,7 +2,7 @@ This is a university project for a Real-Time Chat App called DogeConnect featuri
 
 Technology Stack 
 
-Next.js 13
+Next.js 14
 React 
 Tailwind
 Prisma
