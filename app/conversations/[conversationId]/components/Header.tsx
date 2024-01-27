@@ -5,11 +5,10 @@ import { HiEllipsisHorizontal } from 'react-icons/hi2';
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Conversation, User } from "@prisma/client";
-
 import useOtherUser from "@/app/hooks/useOtherUser";
-
 import Avatar from "@/app/components/Avatar";
 import ProfileDrawer from './ProfileDrawer';
+import AvatarGroup from '@/app/components/AvatarGroup';
 
 interface HeaderProps {
   conversation: Conversation & {
@@ -60,16 +59,19 @@ const Header: React.FC<HeaderProps> = ({
           className="
             lg:hidden 
             block 
-            text-sky-500 
-            hover:text-sky-600 
+            text-yellow-500 
+            hover:text-yellow-600 
             transition 
             cursor-pointer
           "
         >
           <HiChevronLeft size={32} />
         </Link>
-        <Avatar user={otherUser} />
-        
+        {conversation.isGroup ? (
+          <AvatarGroup users={conversation.users}/>
+        ) : (
+          <Avatar user={otherUser} />
+        )}
         <div className="flex flex-col">
           <div>{conversation.name || otherUser.name}</div>
           <div className="text-sm font-light text-neutral-500">
@@ -81,9 +83,9 @@ const Header: React.FC<HeaderProps> = ({
         size={32}
         onClick={() => setDrawerOpen(true)}
         className="
-          text-sky-500
+          text-yellow-500
           cursor-pointer
-          hover:text-sky-600
+          hover:text-yellow-600
           transition
         "
       />
