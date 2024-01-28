@@ -19,7 +19,7 @@ interface ProfileDrawerProps {
     }
   }
 
-const profileDrawer: React.FC<ProfileDrawerProps> = ({
+const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
         isOpen,
         onClose,
         data,
@@ -201,4 +201,4 @@ const profileDrawer: React.FC<ProfileDrawerProps> = ({
      );
 }
  
-export default profileDrawer;
+export default ProfileDrawer;
